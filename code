@@ -1,0 +1,76 @@
+class Windows_app:
+
+    def __init__(self, status):
+        self.status = status
+
+        def Help_p():
+            pass
+            Help.show()
+
+        def About():
+            pass
+            about.show()
+
+        def Student():
+            pass
+            home_student.show()
+
+        def Professor():
+            pass
+
+        def classes():
+            pass
+
+        def User():
+            pass
+
+        home = Tk()
+
+        # titel
+        home.title("Institute Management Software Shookooh Andihe")
+
+        # menu bar
+        menubar = Menu(home)
+        filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_command(label="Close", command=home.quit)
+        filemenu.add_separator()
+        menubar.add_cascade(label="File", menu=filemenu)
+
+        helpmenu = Menu(menubar, tearoff=0)
+        helpmenu.add_command(label="Help Index", command=Help_p)
+        helpmenu.add_command(label="About...", command=About)
+        helpmenu.add_separator()
+        menubar.add_cascade(label="Help", menu=helpmenu)
+        home.config(menu=menubar)
+
+        # lable from
+        labelframe = LabelFrame(home, text="Tools")
+        labelframe.pack(fill="both", expand="yes")
+
+        # logo
+        logo = PhotoImage(file="logo.png")
+        w1 = Label(labelframe, image=logo).pack(side="right", padx=10)
+
+        # buttons
+        Student = Button(labelframe, text="Student", height=10, width=10,
+                         activebackground="blue", command=Sing.show())
+        Professor = Button(labelframe, text="Professor", height=10, width=10,
+                           activebackground="red", command=Professor)
+        classes = Button(labelframe, text="Classes", height=10, width=10,
+                         activebackground="blue", command=classes)
+        User = Button(labelframe, text="User", height=10, width=10,
+                      activebackground="red", command=User)
+        # lable
+        Label(home, text="Application Status: %r" % (self.status), fg="black",
+              font="Helvetica 10 bold").pack(side="left", anchor="w", expand="yes")
+
+        Student.pack(side="left", anchor="ne")
+        Professor.pack(side="left", anchor="ne")
+        classes.pack(side="left", anchor="ne")
+        User.pack(side="left", anchor="ne")
+
+        home.mainloop()
+
+if __name__ == "__main__":
+    Windows_app("OK")
+
